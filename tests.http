@@ -1,0 +1,19 @@
+GET http://localhost:3000/music
+###
+
+POST http://localhost:3000/music
+Content-Type: application/json
+
+{
+    "name": "test"
+}
+###
+
+PUT http://localhost:3000/music/5
+Content-Type: application/json
+
+{
+    "name": "Music changed"
+}
+###
+DELETE  http://localhost:3000/music/2
