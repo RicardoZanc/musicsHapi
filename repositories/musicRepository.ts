@@ -7,22 +7,30 @@ export class musicRepository {
     
 
     getAllMusics = async () => {
-        const musics = await this.prisma.music.findMany();
-        return musics;
+        try { 
+            const musics = await this.prisma.music.findMany();
+            return musics;
+        } catch (e) {
+            console.log("Erro: ", e)
+        }
     }
 
     createMusic = async (musicToBeCreated:musicModel) => {
+       try { 
         const music = await this.prisma.music.create({
-         data:   {
-                name: musicToBeCreated.name
-            }
+            data:   {
+                    name: musicToBeCreated.name
+                }
         }
         );
         return music;
+    } catch (e) {
+        console.log("Erro: ", e)
+    }
     }
 
     editMusic = async (id:number, musicToBeEdited:musicModel) => {
-       try { console.log(`Controller called:\nid: ${id}\nmscEdited: ${musicToBeEdited}`)
+       try { 
         const music = await this.prisma.music.update({
             where: {
                 id: id,
@@ -33,16 +41,20 @@ export class musicRepository {
         });
         return music;
     } catch (e){
-        console.log(e)
+        console.log("Erro: ", e)
     }
     }
 
     deleteMusic = async (id:number) => {
-        const music = await this.prisma.music.delete({
-            where: {
-                id: id
-            }
-        });
-        return music;
+        try { 
+            const music = await this.prisma.music.delete({
+                where: {
+                    id: id
+                }
+            });
+            return music;
+        } catch (e) {
+            console.log("Erro: ", e)
+        }
     }
 }
