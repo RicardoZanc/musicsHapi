@@ -9,11 +9,11 @@ Content-Type: application/json
 }
 ###
 
-PUT http://localhost:3000/music/5
+PUT http://localhost:3000/music/10
 Content-Type: application/json
 
 {
     "name": "Music changed"
 }
 ###
-DELETE  http://localhost:3000/music/2
+DELETE  http://localhost:3000/music/9
