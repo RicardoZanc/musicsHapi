@@ -3,7 +3,9 @@ import { musicRepository } from "../repositories/musicRepository"
 import { musicModel } from "../models/musicModel";
 
 export class musicController {
+
     repository:musicRepository = new musicRepository();
+    
     getAllMusics = async () => {
         return await this.repository.getAllMusics()
     }
